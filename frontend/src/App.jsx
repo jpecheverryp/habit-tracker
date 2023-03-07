@@ -134,6 +134,12 @@ function App() {
       <NewHabitForm updateAppDataHandler={updateAppDataHandler} appData={appData} />
       <hr />
       {appData.map(habit => <HabitSection key={habit.habitId} habitData={habit} habitName={habit.habitName} today={today} markTodayHandler={markTodayHandler} />)}
+      <footer>
+        <h2>About this project</h2>
+        <p>This project was developed by Juan P Echeverry, you can check my <a href='https://juanpecheverry.com' target={'_blank'}>Portfolio here</a>.
+        <br/>
+        This is an open source project, you can check out the repository on <a href='https://github.com/jpecheverryp/habit-tracker' target={'_blank'}>GitHub</a></p>
+      </footer>
     </main>
   )
 }
