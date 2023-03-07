@@ -56,8 +56,8 @@ function HabitSection({ habitData, markTodayHandler }) {
   return (
     <section className='habit-section'>
       <h3>{habitData.habitName}</h3>
-      <button data-habitid={habitData.habitId} onClick={markTodayHandler}>Mark as Done</button>
-      <table>
+      <button className='btn' data-habitid={habitData.habitId} onClick={markTodayHandler}>Done</button>
+      <table className='habit-table'>
         <thead>
         </thead>
         <TableBody calendarData={habitData.habitCalendar} />
@@ -90,10 +90,10 @@ function NewHabitForm({updateAppDataHandler, appData}) {
 
 
   return (
-      <form onSubmit={newHabitHandler}>
-        <label htmlFor='new-habit-input'>New Habit</label>
-        <input id='new-habit-input' type={'text'} onChange={newHabitChangeHandler} value={newHabitInput} />
-        <button type='submit'>Create New Habit</button>
+      <form className='form' onSubmit={newHabitHandler}>
+        <label className='form-label' htmlFor='new-habit-input'>New Habit</label>
+        <input className='form-input' id='new-habit-input' type={'text'} onChange={newHabitChangeHandler} value={newHabitInput} />
+        <button className='btn' type='submit'>Add</button>
       </form>
   )
 }
@@ -132,7 +132,6 @@ function App() {
       <h1>Habit Tracker</h1>
       <h2>Today: {today.toLocaleDateString()}</h2>
       <NewHabitForm updateAppDataHandler={updateAppDataHandler} appData={appData} />
-      <hr />
       {appData.map(habit => <HabitSection key={habit.habitId} habitData={habit} habitName={habit.habitName} today={today} markTodayHandler={markTodayHandler} />)}
       <footer>
         <h2>About this project</h2>
