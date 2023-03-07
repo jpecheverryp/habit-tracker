@@ -29,10 +29,8 @@ function Block({x, y, calendarData}) {
   const blockColor = wasDone ? 'blueviolet' : 'lightgray'
   return (
     <td style={{
-      width: '11px',
-      height: '11px',
       backgroundColor: blockColor,
-    }} className="tooltip">
+    }} className="tooltip day-block">
     <span className='tooltiptext'>{blockDate}</span>
     </td>)
 }
@@ -56,8 +54,8 @@ function TableBody({calendarData }) {
 function HabitSection({ habitData, markTodayHandler }) {
 
   return (
-    <section style={{display: 'block', margin: '0 auto', width:'fit-content'}}>
-      <h3 style={{display: 'inline', marginRight: '1rem'}}>{habitData.habitName}</h3>
+    <section className='habit-section'>
+      <h3>{habitData.habitName}</h3>
       <button data-habitid={habitData.habitId} onClick={markTodayHandler}>Mark as Done</button>
       <table>
         <thead>
@@ -131,7 +129,7 @@ function App() {
 
   return (
     <main>
-      <h1 style={{marginTop: '6rem'}}>Habit Tracker</h1>
+      <h1>Habit Tracker</h1>
       <h2>Today: {today.toLocaleDateString()}</h2>
       <NewHabitForm updateAppDataHandler={updateAppDataHandler} appData={appData} />
       <hr />
